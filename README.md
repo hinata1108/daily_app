@@ -1,4 +1,9 @@
-# React + TypeScript + Vite
+# daily_app
+日記アプリ
+
+## 技術スタック
+
+React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
