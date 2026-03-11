@@ -1,0 +1,41 @@
+
+.ChoiceColor {
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 300px;
+}
+
+.color {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.color.notSelected {
+    opacity: 0.6;
+    filter:saturate(0.5);
+}
+
+/* selected以外の時だけhoverを適用 */
+.color:not(.selected):hover {
+    transform: scale(1.2);
+}
+
+.color:not(.selected):active {
+    transform: scale(0.9);
+}
+
+.color.selected {
+    transform: scale(1.4);
+    filter:saturate(1.2);
+}
+
+/* selectedの時はhoverやactiveを無効化 */
+.color.selected:hover,
+.color.selected:active {
+    transform: scale(1.4);
+}

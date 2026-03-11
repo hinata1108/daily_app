@@ -1,0 +1,104 @@
+.DailyForm {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0 40px 40px 40px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    background-color: white;
+    color: #374151;
+}
+
+
+
+/* タイトル入力欄 */
+.todayTitle {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.todayTitle input {
+    font-size: 30px;
+    font-weight: 500;
+    max-width: 200Px;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #E5E7EB;
+    outline: none;
+}
+.todayTitle input::placeholder {
+    font-size: 15px;
+    color:#9CA3AF;
+}
+.todayTitle input:focus {
+    border-bottom-color: #EC8A8A;
+}
+
+/* 色選択欄 */
+.todayColor  {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.todayColorTitle {
+    align-self: flex-start;
+}
+
+
+
+/* メモ入力欄 */
+.todayMemo {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.todayMemoTitle {
+    align-self: flex-start;
+} 
+
+.todayMemo textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    background: transparent;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    outline: none;
+}
+
+    /* 投稿ボタン */
+.submitButton button {
+  margin-top: 10px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #F59E9E;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitButton button:hover {
+  transform: translateY(-2px);
+  background:#EC8A8A;
+  box-shadow: 0 6px 14px rgba(244,114,182,0.3);
+}
+
+.submitButton button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(244,114,182,0.2);
+}
