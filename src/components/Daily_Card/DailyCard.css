@@ -6,16 +6,20 @@
     box-shadow:0 4px 10px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 40px;
+    
+
+}
+
+.DailyCard p,
+.DailyCard h2{
+    margin:0;
 }
 
 .date {
     max-width: 100px;
     display: flex;
     flex-direction: column;
-}
-.date p {
-    margin:0;
 }
 
 .month {
@@ -32,13 +36,25 @@
     width: 40px;
     height: 40px;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
     color: #fff;
     padding: 10px;
     border-radius: 50%;
-    display: inline-block;
 }
 
 .content {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.memo {
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
 }
