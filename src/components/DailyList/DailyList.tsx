@@ -1,8 +1,9 @@
 import { DailyCard } from '../Daily_Card/DailyCard'
+import "./DailyList.css"
 
 export const DailyList = () => {
 
-    const testData = [
+    const dailies = [
   {
     id: "1",
     title: "カフェ行った",
@@ -20,8 +21,11 @@ export const DailyList = () => {
 ]
 
     return (
-        <div>
-            <DailyCard />
+        <div className="DailyList">
+            {dailies.map((daily) => (
+                <DailyCard key={daily.id} daily={daily} />
+            ))}
+            
         </div>
     )
 }
