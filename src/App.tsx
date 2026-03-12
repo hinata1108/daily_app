@@ -1,4 +1,4 @@
-import {DailyCard} from './components/Daily_Card/DailyCard.tsx'
+import {DailyList} from './components/DailyList/DailyList.tsx'
 
 import { useState } from 'react'
 
@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <DailyCard />
+    <DailyList />
 
   )
 }
