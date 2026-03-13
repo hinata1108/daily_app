@@ -1,4 +1,4 @@
-import {DailyList} from './components/DailyList/DailyList.tsx'
+import {Login} from './components/Auth/Login.tsx'
 
 import { useState } from 'react'
 
@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <DailyList />
+    <Login />
 
   )
 }
