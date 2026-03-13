@@ -1,12 +1,15 @@
 import { useState } from "react";
 import "./Auth.css";
 import {Switch} from "./Switch.tsx"
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");   
-const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");   
+    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    navigate("/home");
     
 };
 

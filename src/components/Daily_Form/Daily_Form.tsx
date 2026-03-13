@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { ChoiceColor } from "./Choice_Colors/ChoiceColor";
 import './Daily_Form.css'
-
+import { useNavigate } from "react-router-dom";
 
 export const Daily_Form = () => {
+    const navigate = useNavigate();
     const [title, setTitle] = useState("")
     const [selectColor, setSelectColor] = useState("")
     const [memo, setMemo] = useState("")
@@ -11,6 +12,7 @@ export const Daily_Form = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log(title, selectColor, memo)
+        navigate("/home");
     }
 
     return (
