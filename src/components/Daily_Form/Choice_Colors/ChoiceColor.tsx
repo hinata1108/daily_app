@@ -11,7 +11,7 @@ export const ChoiceColor = ({ selectColor, setSelectColor }: Props) => {
     return (
         <div className="ChoiceColor">
             {colors.map((color)=> (
-                <button key={color} 
+                <button type="button" key={color} 
                 className={`color ${selectColor === color ? "selected" : ""} ${selectColor && selectColor !== color ? "notSelected" : ""}`}
                 onClick={()=> setSelectColor(color)}
                 style={{ backgroundColor: color }}/>

@@ -1,7 +1,7 @@
-import {LoginPage} from './pages/LoginPage.tsx'
-import {RegisterPage} from './pages/RegisterPage.tsx'
-import {HomePage} from './pages/HomePage.tsx'
-import {WritePage} from './pages/WritePage.tsx'
+import {LoginPage} from './pages/AuthPage/LoginPage.tsx'
+import {RegisterPage} from './pages/AuthPage/RegisterPage.tsx'
+import {HomePage} from './pages/HomePage/HomePage.tsx'
+import {WritePage} from './pages/WritePage/WritePage.tsx'
 import './index.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 

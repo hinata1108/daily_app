@@ -1,28 +1,29 @@
 
 /* Switch */
 .Switch{
-  display:flex;
-  justify-content:center;
-  gap:24px;
-  margin-bottom:30px;
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    margin-bottom:30px;
 }
 
 .Switch a{
-  text-decoration:none;
-  color:#777;
-  font-size:16px;
-  padding-bottom:6px;
-  transition:all 0.2s;
+    text-decoration:none;
+    color:#777;
+    font-size:16px;
+    padding-bottom:6px;
 }
 
 .Switch a:hover{
-  color:#333;
+    color:#333;
+
 }
 
 .Switch .active{
-  color:#333;
-  border-bottom:3px solid #EC8A8A;
-  font-weight:600;
+    color:#333;
+    border-bottom:3px solid #EC8A8A;
+    font-weight:600;
+
 }
 
 
@@ -31,7 +32,8 @@
 
 /* Form */
 .Auth{
-    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,15 +42,19 @@
     gap: 16px;
     background-color: white;
     border: 2px solid #E5E7EB;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
     border-radius: 30px;
     transition:all 0.2s ease;
 }
+form {
+    width:100%;
+}
 
 .AuthForm {
-    max-width: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
+
     gap: 8px;
 }
 .AuthForm label {
@@ -56,6 +62,7 @@
     color: #555;
 }
 .AuthForm input {
+    width:100%;
     padding: 8px;
     border: 1px solid #E5E7EB;
     border-radius: 6px;
@@ -74,6 +81,8 @@
 }
 
 button {
+    width:100%;
+    max-width: 150px;
     margin-top: 10px;
     padding: 12px 28px;
     font-size: 16px;
