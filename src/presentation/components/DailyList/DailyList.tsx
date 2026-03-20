@@ -1,23 +1,21 @@
 import { DailyCard } from '../Daily_Card/DailyCard'
 import './DailyList.css'
+import { fetchDailies } from '../../../application/dailyService'
+import { useEffect, useState } from 'react'
+import type { Daily } from '../../../types/daily'
 
 export const DailyList = () => {
-  const dailies = [
-    {
-      id: '1',
-      title: 'カフェ行った',
-      memo: '今日はゆっくりできた ☕',
-      color: '#FFD6A5',
-      createdAt: '2026-03-12',
-    },
-    {
-      id: '2',
-      title: '散歩した',
-      memo: '天気がよかった 🌿',
-      color: '#CAFFBF',
-      createdAt: '2026-03-11',
-    },
-  ]
+  const [dailies, setDailies] = useState<Daily[]>([])
+  useEffect(() => {
+  const getData= async() => {try {
+    const data=await fetchDailies()
+    setDailies(data)
+  } catch (error) {
+    console.error(error)
+  }
+  getData()
+}},[])
+  
 
   return (
     <div className="DailyList">

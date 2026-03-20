@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ChoiceColor } from './Choice_Colors/ChoiceColor'
 import './Daily_Form.css'
 import { useNavigate } from 'react-router-dom'
+import { addDaily } from '../../../application/dailyService'
 
 export const Daily_Form = () => {
   const navigate = useNavigate()
@@ -9,10 +10,14 @@ export const Daily_Form = () => {
   const [selectColor, setSelectColor] = useState('')
   const [memo, setMemo] = useState('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(title, selectColor, memo)
-    navigate('/home')
+    try {
+      await addDaily(title,selectColor,memo)
+      navigate('/home')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
