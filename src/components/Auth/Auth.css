@@ -1,107 +1,102 @@
-
 /* Switch */
-.Switch{
-    display:flex;
-    justify-content:center;
-    gap:24px;
-    margin-bottom:30px;
+.Switch {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 30px;
 }
 
-.Switch a{
-    text-decoration:none;
-    color:#777;
-    font-size:16px;
-    padding-bottom:6px;
+.Switch a {
+  text-decoration: none;
+  color: #777;
+  font-size: 16px;
+  padding-bottom: 6px;
 }
 
-.Switch a:hover{
-    color:#333;
-
+.Switch a:hover {
+  color: #333;
 }
 
-.Switch .active{
-    color:#333;
-    border-bottom:3px solid #EC8A8A;
-    font-weight:600;
-
+.Switch .active {
+  color: #333;
+  border-bottom: 3px solid #ec8a8a;
+  font-weight: 600;
 }
-
-
 
 /* Register */
 
 /* Form */
-.Auth{
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 40px;
-    gap: 16px;
-    background-color: white;
-    border: 2px solid #E5E7EB;
-    box-shadow:0 10px 25px rgba(0,0,0,0.05);
-    border-radius: 30px;
-    transition:all 0.2s ease;
+.Auth {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 40px;
+  gap: 16px;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  transition: all 0.2s ease;
 }
 form {
-    width:100%;
+  width: 100%;
 }
 
 .AuthForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-    gap: 8px;
+  gap: 8px;
 }
 .AuthForm label {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
 .AuthForm input {
-    width:100%;
-    padding: 8px;
-    border: 1px solid #E5E7EB;
-    border-radius: 6px;
-    font-size: 16px;
-    background: transparent;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 16px;
+  background: transparent;
 }
 
 .AuthForm input:focus {
-    border-color: #EC8A8A;
-    outline: none;
+  border-color: #ec8a8a;
+  outline: none;
 }
 
 .Auth input::placeholder {
-    font-size: 14px;
-    color:#9CA3AF;
+  font-size: 14px;
+  color: #9ca3af;
 }
 
 button {
-    width:100%;
-    max-width: 150px;
-    margin-top: 10px;
-    padding: 12px 28px;
-    font-size: 16px;
-    font-weight: 500;
-    color: white;
-    background: #F59E9E;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  width: 100%;
+  max-width: 150px;
+  margin-top: 10px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #f59e9e;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    background:#EC8A8A;
-    box-shadow: 0 6px 14px rgba(244,114,182,0.3);
+  transform: translateY(-2px);
+  background: #ec8a8a;
+  box-shadow: 0 6px 14px rgba(244, 114, 182, 0.3);
 }
 
 button:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 8px rgba(244,114,182,0.2);
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(244, 114, 182, 0.2);
 }
