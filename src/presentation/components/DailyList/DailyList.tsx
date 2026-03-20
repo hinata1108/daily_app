@@ -12,9 +12,9 @@ export const DailyList = () => {
     setDailies(data)
   } catch (error) {
     console.error(error)
-  }
+  }}
   getData()
-}},[])
+},[])
   
 
   return (

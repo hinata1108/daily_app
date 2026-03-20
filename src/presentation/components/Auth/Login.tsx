@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
 import { Switch } from './Switch.tsx'
@@ -10,6 +11,7 @@ export const Login = () => {
   const [password, setPassword] = useState('')
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    console.log('ログイン処理開始')
     try {
       await login(email, password)
       navigate('/home')
