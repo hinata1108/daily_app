@@ -1,4 +1,4 @@
-import { colors } from '../../../constant/colors'
+import { colors } from '../../../../constant/colors'
 import './ChoiceColor.css'
 
 type Props = {

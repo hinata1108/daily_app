@@ -1,4 +1,4 @@
-import type { Daily } from '../../types/daily'
+import type { Daily } from '../../../types/daily'
 import './DailyCard.css'
 type Props = {
   daily: Daily
