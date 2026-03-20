@@ -27,7 +27,7 @@ export const signOut = async () => {
 }
 
 // ログインユーザー取得
-export const getLoggedInUser = async () => {
+export const getLoginUser = async () => {
     const { data, error } = await supabase.auth.getUser()
     if(error) {
         throw error
