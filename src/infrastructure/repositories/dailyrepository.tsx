@@ -1,4 +1,4 @@
-import {supabase} from '../infrastructure/supabaseClient';
+import {supabase} from '../supabaseClient';
 
 // 日記の取得
 export const getDailies = async () => {
