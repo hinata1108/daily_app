@@ -2,14 +2,21 @@ import { useState } from 'react'
 import './Auth.css'
 import { Switch } from './Switch.tsx'
 import { useNavigate } from 'react-router-dom'
+import { login } from '../../../application/authService.tsx'
 
 export const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    navigate('/home')
+    try {
+      await login(email, password)
+      navigate('/home')
+    } catch (error) {
+      console.error(error)
+    }
+    
   }
 
   return (

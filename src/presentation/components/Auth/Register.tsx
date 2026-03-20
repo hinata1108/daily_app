@@ -2,14 +2,21 @@ import { useState } from 'react'
 import './Auth.css'
 import { Switch } from './Switch.tsx'
 import { useNavigate } from 'react-router-dom'
+import { register } from '../../../application/authService.tsx'
 
 export const Register = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    navigate('/login')
+    try {
+      await register(email, password)
+      navigate('/login')
+    } catch (error) {
+      console.error(error)
+    }
+    
   }
 
   return (
