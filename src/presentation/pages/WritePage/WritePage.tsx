@@ -1,7 +1,7 @@
 import { Daily_Form } from '../../components/Daily_Form/Daily_Form.tsx'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { loginUser } from '../../../application/authService.tsx'
+import { loginUser } from '../../../application/AuthService.tsx'
 
 export const WritePage = () => {
     const navigate = useNavigate()

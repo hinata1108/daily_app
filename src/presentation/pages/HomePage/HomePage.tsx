@@ -1,7 +1,7 @@
 import { DailyList } from '../../components/DailyList/DailyList.tsx'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { loginUser } from '../../../application/authService.tsx'
+import { loginUser } from '../../../application/AuthService.tsx'
 
 export const HomePage = () => {
   const navigate = useNavigate()
