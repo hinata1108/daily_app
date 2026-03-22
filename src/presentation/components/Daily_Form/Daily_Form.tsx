@@ -10,16 +10,28 @@ export const Daily_Form = () => {
   const [selectColor, setSelectColor] = useState('')
   const [memo, setMemo] = useState('')
   const [file,setFile] = useState<File | null>(null)
+  const[preview,setPreview]=useState<string|null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    try {
+        try {
       await addDaily(title,selectColor,memo,file)
       navigate('/home')
     } catch (error) {
       console.error(error)
     }
   }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0] || null
+            setFile(selectedFile)
+            // プレビューの生成
+          if(selectedFile){
+            const previewUrl=URL.createObjectURL(selectedFile)
+            setPreview(previewUrl)
+          } else {
+            setPreview(null)
+          }}
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,7 +69,7 @@ export const Daily_Form = () => {
         </div>
         <div className="todayImage">
           <h3 className="todayImageTitle">今日の写真</h3>
-          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+          <input type="file" accept="image/*" onChange={handleFileChange}/>
         </div>
         <div className="submitButton">
           <button type="submit">投稿する</button>
