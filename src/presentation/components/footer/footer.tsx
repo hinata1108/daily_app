@@ -5,14 +5,14 @@ export const Footer = () => {
     <footer className="footer">
         <div className="footer-content">
             <Link to="/home" className="link">
-            <img src="home.svg" alt="Home" className="icon" />
+            <img src={`${import.meta.env.BASE_URL}home.svg`} alt="Home" className="icon" />
             
             </Link>
             <Link to="/write" className="link">
-            <img src="write.svg" alt="Write" className="bigIcon" />
+            <img src={`${import.meta.env.BASE_URL}write.svg`} alt="Write" className="bigIcon" />
             </Link>
             <Link to="/calendar" className="link">
-            <img src="calendar.svg" alt="Calendar" className="icon" />
+            <img src={`${import.meta.env.BASE_URL}calendar.svg`} alt="Calendar" className="icon" />
             </Link>
         </div>
     </footer>
