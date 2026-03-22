@@ -1,4 +1,4 @@
-import {signIn, signUp,signOut,getLoginUser} from '../infrastructure/repositories/Authrepository';
+import {signIn, signUp,signOut,getLoginUser} from '../infrastructure/repositories/authrepository';
 
 export const register = async (email: string, password: string) => {
     return await signUp(email, password);

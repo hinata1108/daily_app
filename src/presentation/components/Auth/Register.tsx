@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Auth.css'
 import { Switch } from './Switch.tsx'
 import { useNavigate } from 'react-router-dom'
-import { register } from '../../../application/authService.tsx'
+import { register } from '../../../application/auth-Service.tsx'
 
 export const Register = () => {
   const navigate = useNavigate()

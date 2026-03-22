@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './Auth.css'
 import { Switch } from './Switch.tsx'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../../../application/authService.tsx'
+import { login } from '../../../application/auth-Service.tsx'
 
 export const Login = () => {
   const navigate = useNavigate()
