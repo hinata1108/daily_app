@@ -1,5 +1,5 @@
 import {supabase} from '../supabaseClient';
-import { getLoginUser } from './authrepository' 
+import { getLoginUser } from './auth-Repository' 
 
 // 日記の取得
 export const getDailies = async () => {
