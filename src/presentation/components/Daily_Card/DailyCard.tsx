@@ -24,10 +24,11 @@ export const DailyCard = ({ daily }: Props) => {
         <div className="memo">
           <p>{daily.memo}</p>
         </div>
-        <div className="image">
-          {daily.imageUrl && <img src={daily.imageUrl} alt="Daily" />}
-        </div>
       </div>
+      <div className="image">
+        {daily.imageUrl && <img src={daily.imageUrl} alt="Daily" />}
+      </div>
+
     </div>
   )
 }
