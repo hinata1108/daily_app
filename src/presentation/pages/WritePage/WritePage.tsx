@@ -22,7 +22,7 @@ export const WritePage = () => {
   }, [navigate])
   return (
     <div>
-      <h1>Write</h1>
+      <h1>投稿を作成</h1>
       <Daily_Form />
     </div>
   )

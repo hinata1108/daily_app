@@ -9,16 +9,29 @@ export const Daily_Form = () => {
   const [title, setTitle] = useState('')
   const [selectColor, setSelectColor] = useState('')
   const [memo, setMemo] = useState('')
+  const [file,setFile] = useState<File | null>(null)
+  const[preview,setPreview]=useState<string|null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    try {
-      await addDaily(title,selectColor,memo)
+        try {
+      await addDaily(title,selectColor,memo,file)
       navigate('/home')
     } catch (error) {
       console.error(error)
     }
   }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0] || null
+            setFile(selectedFile)
+            // プレビューの生成
+          if(selectedFile){
+            const previewUrl=URL.createObjectURL(selectedFile)
+            setPreview(previewUrl)
+          } else {
+            setPreview(null)
+          }}
 
   return (
     <form onSubmit={handleSubmit}>
@@ -53,6 +66,16 @@ export const Daily_Form = () => {
             onChange={(e) => setMemo(e.target.value)}
             placeholder="今日の出来事や感想を書いてみましょう"
           />
+        </div>
+        <div className="todayImage">
+          <h3 className="todayImageTitle">今日の写真</h3>
+          <label htmlFor="fileInput" className="fileInputLabel">写真を選択</label>
+          <input id="fileInput" type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+          {preview && (
+            <div className="imagePreview">
+              <img src={preview} alt="Preview" />
+            </div>
+          )}
         </div>
         <div className="submitButton">
           <button type="submit">投稿する</button>
