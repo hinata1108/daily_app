@@ -75,7 +75,7 @@ form {
   color: #9ca3af;
 }
 
-button {
+.Auth button {
   width: 100%;
   max-width: 150px;
   margin-top: 10px;

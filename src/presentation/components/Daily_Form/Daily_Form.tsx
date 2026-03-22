@@ -69,7 +69,13 @@ export const Daily_Form = () => {
         </div>
         <div className="todayImage">
           <h3 className="todayImageTitle">今日の写真</h3>
-          <input type="file" accept="image/*" onChange={handleFileChange}/>
+          <label htmlFor="fileInput" className="fileInputLabel">写真を選択</label>
+          <input id="fileInput" type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+          {preview && (
+            <div className="imagePreview">
+              <img src={preview} alt="Preview" />
+            </div>
+          )}
         </div>
         <div className="submitButton">
           <button type="submit">投稿する</button>

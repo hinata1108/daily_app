@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
   padding: 0 40px 40px 40px;
   border: 2px solid #ccc;
   border-radius: 30px;
@@ -73,6 +73,39 @@
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   outline: none;
+}
+
+/* 写真投稿欄 */
+.todayImage {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.fileInputLabel {
+  width: fit-content;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.fileInputLabel:hover {
+  background-color: #89BFFF;
+  color: white;
+}
+
+.imagePreview img{
+  margin-top: 10px;
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  object-fit: contain
 }
 
 /* 投稿ボタン */
