@@ -5,7 +5,7 @@ import { WritePage } from './presentation/pages/WritePage/WritePage.tsx'
 import { Calendar } from './presentation/pages/CalenderPage/Calendar.tsx' 
 import { Footer } from './presentation/components/footer/footer.tsx'
 import './index.css'
-import { Routes, Route, Navigate,useLocation, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, Navigate,useLocation} from 'react-router-dom'
 
 function App() {
   const location = useLocation();
