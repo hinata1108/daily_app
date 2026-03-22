@@ -14,10 +14,10 @@ export const getDailies = async () => {
 }
 
 // 日記の作成
-export const createDaily = async (title:string,color:string,memo:string) => {
+export const createDaily = async (title:string,color:string,memo?:string,imageUrl?:string) => {
     const user = await getLoginUser()
     const {data, error} = await supabase
-        .from('dailies').insert({title,color,memo,user_id:user.id})
+        .from('dailies').insert({title,color,memo,imageUrl,user_id:user.id})
     if(error) {
         throw error
     }
