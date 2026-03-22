@@ -3,7 +3,7 @@ export type Daily = {
   user_id: string
   title: string
   color: string
-  memo: string
-  imageUrl:string
+  memo?: string
+  imageUrl:string|null
   created_at: string
 }
