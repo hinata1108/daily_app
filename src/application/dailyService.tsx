@@ -7,7 +7,7 @@ export const fetchDailies = async () => {
 };
 
 // 日記の作成
-export const addDaily = async (title:string,color:string,content:string,image:File) => {
+export const addDaily = async (title:string,color:string,content:string,image:File|null) => {
     if(!title){
         throw new Error("タイトルをつけてください");
     }
@@ -16,7 +16,7 @@ export const addDaily = async (title:string,color:string,content:string,image:Fi
     }
     let imageUrl = "";
     if(image){
-        const imageUrl= await uploadImage(image)
+        imageUrl= await uploadImage(image)
     }
     return await createDaily(title,color,content,imageUrl);
 };

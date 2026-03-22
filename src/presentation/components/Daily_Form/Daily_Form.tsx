@@ -9,11 +9,12 @@ export const Daily_Form = () => {
   const [title, setTitle] = useState('')
   const [selectColor, setSelectColor] = useState('')
   const [memo, setMemo] = useState('')
+  const [file,setFile] = useState<File | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
-      await addDaily(title,selectColor,memo)
+      await addDaily(title,selectColor,memo,file)
       navigate('/home')
     } catch (error) {
       console.error(error)
@@ -53,6 +54,10 @@ export const Daily_Form = () => {
             onChange={(e) => setMemo(e.target.value)}
             placeholder="今日の出来事や感想を書いてみましょう"
           />
+        </div>
+        <div className="todayImage">
+          <h3 className="todayImageTitle">今日の写真</h3>
+          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
         </div>
         <div className="submitButton">
           <button type="submit">投稿する</button>
