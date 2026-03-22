@@ -4,5 +4,6 @@ export type Daily = {
   title: string
   color: string
   memo: string
+  imageUrl:string
   created_at: string
 }
