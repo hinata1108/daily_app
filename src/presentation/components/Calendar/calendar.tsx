@@ -1,6 +1,7 @@
 import { fetchDailies } from '../../../application/dailyService'
 import { useEffect, useState,useMemo } from 'react'
 import { CalendarGrid } from './calendarGrid'
+import { CalendarAnime } from './calendarAnime'
 import type { Daily } from '../../../types/daily'
 import './calendar.css'
 
@@ -8,6 +9,7 @@ import './calendar.css'
 export const Calendar = () => {
     const [dailies, setDailies] = useState<Daily[]>([])
     const [currentDate, setCurrentDate] = useState(new Date())
+    const [direction , setDirection] = useState<"left" | "right" | "">("")
     const year= currentDate.getFullYear();
     const month = currentDate.getMonth()
     //データ取得
@@ -44,11 +46,11 @@ export const Calendar = () => {
 }
 
 //月移動
-    const handlePrevMonth = ()=> {
-    setCurrentDate(new Date(year, month - 1, 1))}
-    const handleNextMonth = ()=> {
-    setCurrentDate(new Date(year, month + 1, 1))}
-//日記が書かれてるか
+    const handleMoveMonth = (offset:number)=> {
+    setDirection(offset>0? "right":"left")
+    setCurrentDate(new Date(year, month + offset, 1))
+    setTimeout(() => {setDirection("")},300);};
+
     const getDaily =(day:number)=>{
         if (!day) return null;
 
@@ -62,12 +64,12 @@ export const Calendar = () => {
         <div className="Calendar">
             <h1>{year}年{month+1}月</h1>
             <div className="calendarHeader">
-                <button onClick={handlePrevMonth}>前の月</button>
-                <button onClick={handleNextMonth}>次の月</button>
+                <button onClick={()=>(handleMoveMonth(-1))}>&lt;</button>
+                <button onClick={()=>(handleMoveMonth(1))}>&gt;</button>
             </div>
-            <CalendarGrid calendarDays={calendarDays} getDaily={getDaily} />
-        
-    
-            </div>
+            <CalendarAnime direction={direction}>
+                <CalendarGrid calendarDays={calendarDays} getDaily={getDaily} />
+            </CalendarAnime>
+        </div>
     );
 };
