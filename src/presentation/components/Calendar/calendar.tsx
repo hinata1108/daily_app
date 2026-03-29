@@ -2,6 +2,7 @@ import { fetchDailies } from '../../../application/dailyService'
 import { useEffect, useState,useMemo } from 'react'
 import { CalendarGrid } from './calendarGrid'
 import { CalendarAnime } from './calendarAnime'
+import { CalendarModal } from './calendarModal'
 import type { Daily } from '../../../types/daily'
 import './calendar.css'
 
@@ -10,6 +11,7 @@ export const Calendar = () => {
     const [dailies, setDailies] = useState<Daily[]>([])
     const [currentDate, setCurrentDate] = useState(new Date())
     const [direction , setDirection] = useState<"left" | "right" | "">("")
+    const [selectedDaily, setSelectedDaily] = useState<Daily | null>(null)
     const year= currentDate.getFullYear();
     const month = currentDate.getMonth()
     //データ取得
@@ -50,12 +52,20 @@ export const Calendar = () => {
     setDirection(offset>0? "right":"left")
     setCurrentDate(new Date(year, month + offset, 1))
     setTimeout(() => {setDirection("")},300);};
-
+// 日記データ取得
     const getDaily =(day:number)=>{
         if (!day) return null;
-
         return dailies.find(daily => daily.created_at.startsWith(getDateString(day)))|| null;
     }
+// 推したらモーダル表示
+    const handleDayClick = (day:number|null) => {
+    if(!day) return ;
+    const daily = getDaily(day);
+    if (daily) {
+        setSelectedDaily(daily);
+        console.log("clickされた")
+    }
+};
 
 
 
@@ -68,8 +78,9 @@ export const Calendar = () => {
                 <button onClick={()=>(handleMoveMonth(1))}>&gt;</button>
             </div>
             <CalendarAnime direction={direction}>
-                <CalendarGrid calendarDays={calendarDays} getDaily={getDaily} />
+                <CalendarGrid calendarDays={calendarDays} getDaily={getDaily} dayClick={handleDayClick} />
             </CalendarAnime>
+                            {selectedDaily &&<CalendarModal daily={selectedDaily} onClose={()=>setSelectedDaily(null)}/>}
         </div>
     );
 };

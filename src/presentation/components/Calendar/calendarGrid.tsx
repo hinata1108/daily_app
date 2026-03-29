@@ -4,9 +4,10 @@ import type { Daily} from '../../../types/daily'
 type CalendarGridProps = {
     calendarDays: (number | null)[];
     getDaily: (day: number) => Daily | null| undefined;
+    dayClick: (day: number) => void;
 };
 
-export const CalendarGrid = ({ calendarDays, getDaily }: CalendarGridProps) => {
+export const CalendarGrid = ({ calendarDays, getDaily,dayClick }: CalendarGridProps) => {
     return (
         <div className="CalendarGrid">
             <div className="weekdays">
@@ -22,7 +23,8 @@ export const CalendarGrid = ({ calendarDays, getDaily }: CalendarGridProps) => {
                 {calendarDays.map((day, index) => {
                     const daily = day ? getDaily(day) : null;
                     return (
-                        <div key={index} className="day">
+                        <div key={index} className="day" onClick={() =>day && dayClick(day)}>
+                            
                             {day && <span>{day}</span>}
                             {daily && (
                                 <div className="dot" style={{ backgroundColor: daily.color }}></div>
