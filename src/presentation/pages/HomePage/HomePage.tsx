@@ -2,6 +2,7 @@ import { DailyList } from '../../components/DailyList/DailyList.tsx'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../../../application/auth-Service.tsx'
+import '../Page.css'
 
 export const HomePage = () => {
   const navigate = useNavigate()
@@ -22,7 +23,7 @@ export const HomePage = () => {
   }, [navigate])
 
   return (
-    <div>
+    <div className="page">
       <h1>まいにちの記録</h1>
       <DailyList />
     </div>
