@@ -46,6 +46,8 @@
 @media (max-width: 768px) {
     .footer {
         height: 70px;
+        position: fixed;
+        bottom: 0;
     }
     .footer .icon {
         width: 50px;
