@@ -132,3 +132,18 @@
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(244, 114, 182, 0.2);
 }
+
+@media (max-width: 768px) {
+  .DailyForm {
+    max-width: 360px;
+    padding: 20px;
+    gap: 0px;
+  }
+  .todayTitle input {
+    font-size: 24px;
+    max-width: 150px;
+  }
+  .todayMemo textarea {
+    height: 120px;
+  }
+}
