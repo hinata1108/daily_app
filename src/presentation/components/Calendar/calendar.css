@@ -77,3 +77,21 @@
     border-radius: 50%;
 
 }
+
+@media (max-width: 768px) {
+    .Calendar h1 {
+        font-size: 28px;
+        letter-spacing: 0.1em;
+    }
+    .calendarHeader {
+        max-width: 100%;
+        padding: 5px 20px;
+    }
+    .Calendar .day {
+        height: 70px;
+    }
+    .Calendar .day .dot {
+        width: 12px;
+        height: 12px;
+    }
+}
