@@ -14,6 +14,8 @@ export const addDaily = async (title:string,color:string,content:string,image:Fi
     if(!color){
         throw new Error("色を選択してください");
     }
+    const today = new Date().toISOString()
+    const todayPost = await get
     let imageUrl = "";
     if(image){
         imageUrl= await uploadImage(image)

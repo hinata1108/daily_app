@@ -39,7 +39,6 @@ export const Calendar = () => {
     while(days.length < 42){
         days.push(null);
     }
-    console.log("生成された日付配列:", days);
     return days;
     },[currentDate]);
 

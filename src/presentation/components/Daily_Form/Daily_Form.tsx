@@ -22,7 +22,7 @@ export const Daily_Form = () => {
     }
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0] || null
             setFile(selectedFile)
             // プレビューの生成
