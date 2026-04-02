@@ -1,5 +1,6 @@
 import {supabase} from '../supabaseClient';
 import { getLoginUser } from './auth-Repository' 
+import { getJSTDate } from '../../constant/getJSTDate';
 
 // 日記の取得
 export const getDailies = async () => {
@@ -15,7 +16,8 @@ export const getDailies = async () => {
 
 // 日記の取得（特定の日付）
 export const getDailyByDate = async (date:string) => {
-    const {data,error} = await supabase.from('dailies').select("*").eq('created_at', date)
+    const user = await getLoginUser()
+    const {data,error} = await supabase.from('dailies').select("*").eq('date', date).eq('user_id', user.id)
     if(error) {
         throw error
     }
@@ -25,7 +27,7 @@ export const getDailyByDate = async (date:string) => {
 // 日記の作成
 export const createDaily = async (title:string,color:string,memo?:string,imageUrl?:string) => {
     const user = await getLoginUser()
-    const date = new Date().toISOString().split('T')[0]
+    const date = getJSTDate()
     const {data, error} = await supabase
         .from('dailies').insert({title,color,memo,imageUrl,user_id:user.id,date:date}).select().single()
     if(error) {

@@ -1,5 +1,6 @@
-import { getDailies,createDaily } from "../infrastructure/repositories/dailyrepository";
+import { getDailies,createDaily, getDailyByDate } from "../infrastructure/repositories/dailyrepository";
 import { uploadImage } from "../infrastructure/repositories/imageRepository";
+import { getJSTDate } from "../constant/getJSTDate";
 
 // 日記の取得
 export const fetchDailies = async () => {
@@ -14,8 +15,12 @@ export const addDaily = async (title:string,color:string,content:string,image:Fi
     if(!color){
         throw new Error("色を選択してください");
     }
-    const today = new Date().toISOString()
-    const todayPost = await get
+    
+    const today = getJSTDate();
+    const todayPost = await getDailyByDate(today);
+    if(todayPost && todayPost.length > 0){
+        throw new Error("今日の日記はすでに投稿されています");
+    }
     let imageUrl = "";
     if(image){
         imageUrl= await uploadImage(image)
