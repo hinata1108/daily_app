@@ -29,6 +29,7 @@
   border: none;
   background: transparent;
   border-bottom: 2px solid #e5e7eb;
+  color: #374151;
   outline: none;
 }
 .todayTitle input::placeholder {
@@ -69,7 +70,8 @@
   font-size: 15px;
   font-weight: 400;
   border: none;
-  background: transparent;
+  background: white;
+  color: #374151;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   outline: none;
@@ -150,6 +152,9 @@
   .todayTitle input {
     font-size: 16px;
     max-width: 90px;
+  }
+  .todayTitle input::placeholder {
+    font-size: 8px;
   }
   .todayColor{
     max-width: 100%;
