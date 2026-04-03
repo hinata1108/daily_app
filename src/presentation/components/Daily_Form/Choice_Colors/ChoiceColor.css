@@ -2,11 +2,10 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  max-width: 200px;
 }
 
 .color {
-  width: 45px;
+  max-width: 45px;
   height: 45px;
   border-radius: 50%;
   border: none;
@@ -37,4 +36,14 @@
 .color.selected:hover,
 .color.selected:active {
   transform: scale(1.4);
+}
+
+@media (max-width: 768px) {
+  .ChoiceColor {
+    gap: 8px;
+  }
+  .color {
+    width: 40px;
+    height: 40px;
+  }
 }

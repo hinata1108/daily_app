@@ -135,15 +135,35 @@
 
 @media (max-width: 768px) {
   .DailyForm {
-    max-width: 360px;
+    max-width: 320px;
     padding: 20px;
     gap: 0px;
   }
+  .DailyForm h2{
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .DailyForm h3{
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
   .todayTitle input {
-    font-size: 24px;
-    max-width: 150px;
+    font-size: 16px;
+    max-width: 90px;
+  }
+  .todayColor{
+    max-width: 100%;
+  }
+  .todayMemo{
+    max-width: 100%;
   }
   .todayMemo textarea {
+    font-size: 12px;
+    max-width: 240px;
+    width: 100%;
     height: 120px;
+  }
+  .DailyForm label {
+    font-size: 12px;
   }
 }
