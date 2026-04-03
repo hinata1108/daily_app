@@ -35,3 +35,13 @@ export const createDaily = async (title:string,color:string,memo?:string,imageUr
     }
     return data
 }
+
+// 日記の更新
+export const updateDaily = async (id:string,title:string,color:string,memo?:string,imageUrl?:string) => {
+    const {data,error} = await supabase.from('dailies').update({title,color,memo,imageUrl}).eq('id', id).select();
+    console.log("updated daily:",title, memo)
+    if(error) {
+        throw error
+    }
+    return data
+}

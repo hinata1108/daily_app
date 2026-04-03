@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState,us, useEffect } from 'react'
 import { ChoiceColor } from './Choice_Colors/ChoiceColor'
 import './Daily_Form.css'
 import { useNavigate } from 'react-router-dom'
 import { addDaily } from '../../../application/dailyService'
+import { fetchDailyByDate } from '../../../application/dailyService'
+import { getJSTDate } from '../../../constant/getJSTDate'
 
 export const Daily_Form = () => {
   const navigate = useNavigate()
@@ -11,6 +13,22 @@ export const Daily_Form = () => {
   const [memo, setMemo] = useState('')
   const [file,setFile] = useState<File | null>(null)
   const[preview,setPreview]=useState<string|null>(null)
+useEffect(() => {
+  const fetchTodayPost = async () => {
+  const today = getJSTDate()
+  const todayPost =  await fetchDailyByDate(today)
+  if(todayPost && todayPost.length > 0){
+    setTitle(todayPost[0].title)
+    setSelectColor(todayPost[0].color)
+    setMemo(todayPost[0].memo || '')  
+    setFile(todayPost[0].image || null)
+    setPreview(todayPost[0].imageUrl || null)
+  } 
+}
+
+fetchTodayPost()},[])
+
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
