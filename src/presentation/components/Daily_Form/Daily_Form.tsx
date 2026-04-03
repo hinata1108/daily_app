@@ -1,4 +1,4 @@
-import React, { useState,us, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ChoiceColor } from './Choice_Colors/ChoiceColor'
 import './Daily_Form.css'
 import { useNavigate } from 'react-router-dom'
@@ -13,6 +13,9 @@ export const Daily_Form = () => {
   const [memo, setMemo] = useState('')
   const [file,setFile] = useState<File | null>(null)
   const[preview,setPreview]=useState<string|null>(null)
+  const[error,setError]=useState<string|null>(null)
+  const[loading,setLoading]=useState(false)
+  const [todayPost,setTodayPost]=useState(false)
 useEffect(() => {
   const fetchTodayPost = async () => {
   const today = getJSTDate()
@@ -23,6 +26,7 @@ useEffect(() => {
     setMemo(todayPost[0].memo || '')  
     setFile(todayPost[0].image || null)
     setPreview(todayPost[0].imageUrl || null)
+    setTodayPost(true)
   } 
 }
 
@@ -32,11 +36,14 @@ fetchTodayPost()},[])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
         try {
       await addDaily(title,selectColor,memo,file)
       navigate('/home')
-    } catch (error) {
-      console.error(error)
+    } catch (error:any) {
+      setError(error.message||"投稿に失敗しました")
+    }finally{
+        setLoading(false)
     }
   }
 
@@ -95,8 +102,12 @@ fetchTodayPost()},[])
             </div>
           )}
         </div>
+        {error && <p className="error">{error}</p>}
         <div className="submitButton">
-          <button type="submit">投稿する</button>
+          <button type="submit" disabled={loading}>
+            {loading ? ('送信中'):
+            (todayPost ? '更新する':'投稿する')}
+          </button>
         </div>
       </div>
     </form>
