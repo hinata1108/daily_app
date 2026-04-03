@@ -4,16 +4,17 @@ import { CalendarGrid } from './calendarGrid'
 import { CalendarAnime } from './calendarAnime'
 import { CalendarModal } from './calendarModal'
 import type { Daily } from '../../../types/daily'
+import { getJSTDate } from '../../../constant/getJSTDate'
 import './calendar.css'
 
 
 export const Calendar = () => {
     const [dailies, setDailies] = useState<Daily[]>([])
-    const [currentDate, setCurrentDate] = useState(new Date())
+    const [currentDate, setCurrentDate] = useState(getJSTDate())
     const [direction , setDirection] = useState<"left" | "right" | "">("")
     const [selectedDaily, setSelectedDaily] = useState<Daily | null>(null)
-    const year= currentDate.getFullYear();
-    const month = currentDate.getMonth()
+    const year= Number(currentDate.split("-")[0]);
+    const month = Number(parseInt(currentDate.split("-")[1]) - 1);
     //データ取得
         useEffect(() => {
     const getData= async() => {try {
@@ -39,7 +40,6 @@ export const Calendar = () => {
     while(days.length < 42){
         days.push(null);
     }
-    console.log("生成された日付配列:", days);
     return days;
     },[currentDate]);
 
@@ -50,12 +50,14 @@ export const Calendar = () => {
 //月移動
     const handleMoveMonth = (offset:number)=> {
     setDirection(offset>0? "right":"left")
-    setCurrentDate(new Date(year, month + offset, 1))
+    const newMonth = new Date(year, month + offset, 1);
+    const newJSTDate = new Date(newMonth.getTime() +9 *60*60*1000).toISOString().split("T")[0]
+    setCurrentDate(newJSTDate.toString().split("T")[0])
     setTimeout(() => {setDirection("")},300);};
 // 日記データ取得
     const getDaily =(day:number)=>{
         if (!day) return null;
-        return dailies.find(daily => daily.created_at.startsWith(getDateString(day)))|| null;
+        return dailies.find(daily => daily.date === getDateString(day))|| null;
     }
 // 推したらモーダル表示
     const handleDayClick = (day:number|null) => {
@@ -63,7 +65,6 @@ export const Calendar = () => {
     const daily = getDaily(day);
     if (daily) {
         setSelectedDaily(daily);
-        console.log("clickされた")
     }
 };
 

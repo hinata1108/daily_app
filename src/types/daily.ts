@@ -6,4 +6,5 @@ export type Daily = {
   memo?: string
   imageUrl:string|null
   created_at: string
+  date: string
 }
